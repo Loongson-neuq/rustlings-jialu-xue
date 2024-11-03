@@ -1,0 +1,24 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+Diff in /home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check/src/lib.rs:81:
+         let count = basket.values().sum::<u32>();
+         assert!(count > 11);
+     }
+-    
++
+     #[test]
+     fn all_fruit_types_in_basket() {
+         let mut basket = get_fruit_basket();
+
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+[!] Source code format check: FAILED

@@ -1,0 +1,68 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+Diff in /home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check/src/lib.rs:14:
+ 
+     let mut vec1 = fill_vec(vec0);
+ 
+-    println!("{} has length {}, with contents: `{:?}`", "vec0", vec0.len(), vec0);
++    println!(
++        "{} has length {}, with contents: `{:?}`",
++        "vec0",
++        vec0.len(),
++        vec0
++    );
+ 
+     vec1.push(88);
+ 
+Diff in /home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check/src/lib.rs:21:
+-    println!("{} has length {}, with contents `{:?}`", "vec1", vec1.len(), vec1);
++    println!(
++        "{} has length {}, with contents `{:?}`",
++        "vec1",
++        vec1.len(),
++        vec1
++    );
+ }
+ 
+ fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
+
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error[E0382]: borrow of moved value: `vec0`
+  --> src/lib.rs:17:65
+   |
+13 |     let vec0 = Vec::new();
+   |         ---- move occurs because `vec0` has type `std::vec::Vec<i32>`, which does not implement the `Copy` trait
+14 |
+15 |     let mut vec1 = fill_vec(vec0);
+   |                             ---- value moved here
+16 |
+17 |     println!("{} has length {}, with contents: `{:?}`", "vec0", vec0.len(), vec0);
+   |                                                                 ^^^^ value borrowed here after move
+   |
+note: consider changing this parameter type in function `fill_vec` to borrow instead if owning the value isn't necessary
+  --> src/lib.rs:24:18
+   |
+24 | fn fill_vec(vec: Vec<i32>) -> Vec<i32> {
+   |    --------      ^^^^^^^^ this parameter takes ownership of the value
+   |    |
+   |    in this function
+help: consider cloning the value if the performance cost is acceptable
+   |
+15 |     let mut vec1 = fill_vec(vec0.clone());
+   |                                 ++++++++
+
+For more information about this error, try `rustc --explain E0382`.
+error: could not compile `format_check` (lib) due to 1 previous error
+
+[!] Source code format check: FAILED

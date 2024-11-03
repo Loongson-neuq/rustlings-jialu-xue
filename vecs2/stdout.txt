@@ -1,0 +1,42 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+error: expected expression, found `?`
+  --> /home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check/src/lib.rs:16:9
+   |
+16 |         ???
+   |         ^ expected expression
+
+error: expected expression, found `?`
+  --> /home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check/src/lib.rs:27:9
+   |
+27 |         ???
+   |         ^ expected expression
+
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error: expected expression, found `?`
+  --> src/lib.rs:16:9
+   |
+16 |         ???
+   |         ^ expected expression
+
+error: expected expression, found `?`
+  --> src/lib.rs:27:9
+   |
+27 |         ???
+   |         ^ expected expression
+
+error: could not compile `format_check` (lib) due to 2 previous errors
+
+[!] Source code format check: FAILED

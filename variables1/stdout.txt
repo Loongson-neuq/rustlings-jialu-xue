@@ -1,0 +1,35 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error[E0425]: cannot find value `x` in this scope
+  --> src/lib.rs:11:5
+   |
+11 |     x = 5;
+   |     ^
+   |
+help: you might have meant to introduce a new binding
+   |
+11 |     let x = 5;
+   |     +++
+
+error[E0425]: cannot find value `x` in this scope
+  --> src/lib.rs:12:36
+   |
+12 |     println!("x has the value {}", x);
+   |                                    ^ not found in this scope
+
+For more information about this error, try `rustc --explain E0425`.
+error: could not compile `format_check` (lib) due to 2 previous errors
+
+[!] Source code format check: FAILED

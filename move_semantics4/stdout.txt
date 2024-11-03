@@ -1,0 +1,102 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+error: expected expression, found `?`
+  --> /home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check/src/lib.rs:26:19
+   |
+26 |     let mut vec = ???
+   |                   ^ expected expression
+
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error: expected expression, found `?`
+  --> src/lib.rs:26:19
+   |
+26 |     let mut vec = ???
+   |                   ^ expected expression
+
+error[E0106]: missing lifetime specifier
+  --> src/lib.rs:25:13
+   |
+25 | fn foo() -> &mut Vec<i32> {
+   |             ^ expected named lifetime parameter
+   |
+   = help: this function's return type contains a borrowed value, but there is no value for it to be borrowed from
+help: consider using the `'static` lifetime, but this is uncommon unless you're returning a borrowed value from a `const` or a `static`
+   |
+25 | fn foo() -> &'static mut Vec<i32> {
+   |              +++++++
+help: instead, you are more likely to want to return an owned value
+   |
+25 - fn foo() -> &mut Vec<i32> {
+25 + fn foo() -> Vec<i32> {
+   |
+
+error[E0425]: cannot find value `vec0` in this scope
+  --> src/lib.rs:15:23
+   |
+15 |     let mut vec = foo(vec0);
+   |                       ^^^^ help: a local variable with a similar name exists: `vec`
+
+error[E0425]: cannot find value `vec1` in this scope
+  --> src/lib.rs:17:57
+   |
+17 |     println!("{} has length {} content `{:?}`", "vec1", vec1.len(), vec1);
+   |                                                         ^^^^ help: a local variable with a similar name exists: `vec`
+
+error[E0425]: cannot find value `vec1` in this scope
+  --> src/lib.rs:17:69
+   |
+17 |     println!("{} has length {} content `{:?}`", "vec1", vec1.len(), vec1);
+   |                                                                     ^^^^ help: a local variable with a similar name exists: `vec`
+
+error[E0425]: cannot find value `vec1` in this scope
+  --> src/lib.rs:19:5
+   |
+19 |     vec1.push(88);
+   |     ^^^^ help: a local variable with a similar name exists: `vec`
+
+error[E0425]: cannot find value `vec1` in this scope
+  --> src/lib.rs:21:57
+   |
+21 |     println!("{} has length {} content `{:?}`", "vec1", vec1.len(), vec1);
+   |                                                         ^^^^ help: a local variable with a similar name exists: `vec`
+
+error[E0425]: cannot find value `vec1` in this scope
+  --> src/lib.rs:21:69
+   |
+21 |     println!("{} has length {} content `{:?}`", "vec1", vec1.len(), vec1);
+   |                                                                     ^^^^ help: a local variable with a similar name exists: `vec`
+
+error[E0061]: this function takes 0 arguments but 1 argument was supplied
+  --> src/lib.rs:15:19
+   |
+15 |     let mut vec = foo(vec0);
+   |                   ^^^ ---- unexpected argument
+   |
+note: function defined here
+  --> src/lib.rs:25:4
+   |
+25 | fn foo() -> &mut Vec<i32> {
+   |    ^^^
+help: remove the extra argument
+   |
+15 -     let mut vec = foo(vec0);
+15 +     let mut vec = foo();
+   |
+
+Some errors have detailed explanations: E0061, E0106, E0425.
+For more information about an error, try `rustc --explain E0061`.
+error: could not compile `format_check` (lib) due to 9 previous errors
+
+[!] Source code format check: FAILED

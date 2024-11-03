@@ -1,0 +1,33 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error[E0277]: the `?` operator can only be used in a function that returns `Result` or `Option` (or another type that implements `std::ops::FromResidual`)
+  --> src/lib.rs:18:46
+   |
+14 | fn main() {
+   | --------- this function should return `Result` or `Option` to accept `?`
+...
+18 |     let cost = total_cost(pretend_user_input)?;
+   |                                              ^ cannot use the `?` operator in a function that returns `()`
+   |
+   = help: the trait `std::ops::FromResidual<std::result::Result<std::convert::Infallible, std::num::ParseIntError>>` is not implemented for `()`
+help: consider adding return type
+   |
+14 | fn main() -> Result<(), Box<dyn std::error::Error>> {
+   |           +++++++++++++++++++++++++++++++++++++++++
+
+For more information about this error, try `rustc --explain E0277`.
+error: could not compile `format_check` (lib) due to 1 previous error
+
+[!] Source code format check: FAILED

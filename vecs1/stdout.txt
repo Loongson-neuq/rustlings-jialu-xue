@@ -1,0 +1,53 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+error: expected `;`, found `}`
+  --> /home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check/src/lib.rs:16:11
+   |
+16 |     (a, v)
+   |           ^ help: add `;` here
+17 | }
+   | - unexpected token
+
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error: expected `;`, found `}`
+  --> src/lib.rs:16:11
+   |
+16 |     (a, v)
+   |           ^ help: add `;` here
+17 | }
+   | - unexpected token
+
+error[E0425]: cannot find value `v` in this scope
+  --> src/lib.rs:16:9
+   |
+16 |     (a, v)
+   |         ^ help: a local variable with a similar name exists: `a`
+
+error[E0308]: mismatched types
+  --> src/lib.rs:12:23
+   |
+12 | fn array_and_vec() -> ([i32; 4], Vec<i32>) {
+   |    -------------      ^^^^^^^^^^^^^^^^^^^^ expected `([i32; 4], Vec<i32>)`, found `()`
+   |    |
+   |    implicitly returns `()` as its body has no tail or `return` expression
+   |
+   = note:  expected tuple `([i32; 4], std::vec::Vec<i32>)`
+           found unit type `()`
+
+Some errors have detailed explanations: E0308, E0425.
+For more information about an error, try `rustc --explain E0308`.
+error: could not compile `format_check` (lib) due to 3 previous errors
+
+[!] Source code format check: FAILED

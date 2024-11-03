@@ -1,0 +1,54 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error[E0382]: borrow of moved value: `data`
+  --> src/lib.rs:15:22
+   |
+11 |     let data = "Rust is great!".to_string();
+   |         ---- move occurs because `data` has type `std::string::String`, which does not implement the `Copy` trait
+12 |
+13 |     get_char(data);
+   |              ---- value moved here
+14 |
+15 |     string_uppercase(&data);
+   |                      ^^^^^ value borrowed here after move
+   |
+note: consider changing this parameter type in function `get_char` to borrow instead if owning the value isn't necessary
+  --> src/lib.rs:19:19
+   |
+19 | fn get_char(data: String) -> char {
+   |    --------       ^^^^^^ this parameter takes ownership of the value
+   |    |
+   |    in this function
+help: consider cloning the value if the performance cost is acceptable
+   |
+13 |     get_char(data.clone());
+   |                  ++++++++
+
+error[E0716]: temporary value dropped while borrowed
+  --> src/lib.rs:25:13
+   |
+24 | fn string_uppercase(mut data: &String) {
+   |                               - let's call the lifetime of this reference `'1`
+25 |     data = &data.to_uppercase();
+   |     --------^^^^^^^^^^^^^^^^^^^- temporary value is freed at the end of this statement
+   |     |       |
+   |     |       creates a temporary value which is freed while still in use
+   |     assignment requires that borrow lasts for `'1`
+
+Some errors have detailed explanations: E0382, E0716.
+For more information about an error, try `rustc --explain E0382`.
+error: could not compile `format_check` (lib) due to 2 previous errors
+
+[!] Source code format check: FAILED

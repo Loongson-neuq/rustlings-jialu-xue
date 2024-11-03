@@ -1,0 +1,36 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error[E0308]: mismatched types
+  --> src/lib.rs:11:14
+   |
+9  |     let number = "T-H-R-E-E"; // don't change this line
+   |                  ----------- expected due to this value
+10 |     println!("Spell a Number : {}", number);
+11 |     number = 3; // don't rename this variable
+   |              ^ expected `&str`, found integer
+
+error[E0369]: cannot add `{integer}` to `&str`
+  --> src/lib.rs:12:48
+   |
+12 |     println!("Number plus two is : {}", number + 2);
+   |                                         ------ ^ - {integer}
+   |                                         |
+   |                                         &str
+
+Some errors have detailed explanations: E0308, E0369.
+For more information about an error, try `rustc --explain E0308`.
+error: could not compile `format_check` (lib) due to 2 previous errors
+
+[!] Source code format check: FAILED

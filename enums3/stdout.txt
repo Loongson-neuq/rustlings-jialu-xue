@@ -1,0 +1,35 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+Diff in /home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check/src/lib.rs:20:
+     color: (u8, u8, u8),
+     position: Point,
+     quit: bool,
+-    message: String
++    message: String,
+ }
+ 
+ impl State {
+Diff in /home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check/src/lib.rs:32:
+         self.quit = true;
+     }
+ 
+-    fn echo(&mut self, s: String) { self.message = s }
++    fn echo(&mut self, s: String) {
++        self.message = s
++    }
+ 
+     fn move_position(&mut self, p: Point) {
+         self.position = p;
+
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+[!] Source code format check: FAILED

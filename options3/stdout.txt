@@ -1,0 +1,33 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error[E0382]: use of partially moved value: `y`
+  --> src/lib.rs:20:5
+   |
+17 |         Some(p) => println!("Co-ordinates are {},{} ", p.x, p.y),
+   |              - value partially moved here
+...
+20 |     y; // Fix without deleting this line.
+   |     ^ value used here after partial move
+   |
+   = note: partial move occurs because value has type `Point`, which does not implement the `Copy` trait
+help: borrow this binding in the pattern to avoid moving the value
+   |
+17 |         Some(ref p) => println!("Co-ordinates are {},{} ", p.x, p.y),
+   |              +++
+
+For more information about this error, try `rustc --explain E0382`.
+error: could not compile `format_check` (lib) due to 1 previous error
+
+[!] Source code format check: FAILED

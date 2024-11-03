@@ -1,0 +1,34 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error[E0061]: this function takes 1 argument but 0 arguments were supplied
+  --> src/lib.rs:9:5
+   |
+9  |     call_me();
+   |     ^^^^^^^-- argument #1 of type `u32` is missing
+   |
+note: function defined here
+  --> src/lib.rs:12:4
+   |
+12 | fn call_me(num: u32) {
+   |    ^^^^^^^ --------
+help: provide the argument
+   |
+9  |     call_me(/* u32 */);
+   |            ~~~~~~~~~~~
+
+For more information about this error, try `rustc --explain E0061`.
+error: could not compile `format_check` (lib) due to 1 previous error
+
+[!] Source code format check: FAILED

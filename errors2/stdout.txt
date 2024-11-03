@@ -1,0 +1,31 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error[E0369]: cannot multiply `std::result::Result<i32, std::num::ParseIntError>` by `{integer}`
+  --> src/lib.rs:31:12
+   |
+31 |     Ok(qty * cost_per_item + processing_fee)
+   |        --- ^ ------------- {integer}
+   |        |
+   |        std::result::Result<i32, std::num::ParseIntError>
+   |
+note: the foreign item type `std::result::Result<i32, std::num::ParseIntError>` doesn't implement `std::ops::Mul<{integer}>`
+  --> /rustc/f6e511eec7342f59a25f7c0534f1dbea00d01b14/library/core/src/result.rs:527:1
+   |
+   = note: not implement `std::ops::Mul<{integer}>`
+
+For more information about this error, try `rustc --explain E0369`.
+error: could not compile `format_check` (lib) due to 1 previous error
+
+[!] Source code format check: FAILED

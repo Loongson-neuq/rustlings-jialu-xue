@@ -1,0 +1,53 @@
+Checking test execution result...
+[!] Test execution result: FAILED
+Checking source code format...
+  Preparing source code for format check...
+  Running format check...
+// =====================================================
+//  Running cargo fmt...
+// =====================================================
+
+error: expected type, found `)`
+  --> /home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check/src/lib.rs:12:16
+   |
+12 | fn call_me(num:) {
+   |                ^ expected type
+
+
+// =====================================================
+//    Running cargo clippy...
+// =====================================================
+
+    Checking format_check v0.1.0 (/home/runner/work/rustlings-jialu-xue/rustlings-jialu-xue/format_check)
+error: expected type, found `)`
+  --> src/lib.rs:12:16
+   |
+12 | fn call_me(num:) {
+   |                ^ expected type
+
+error[E0425]: cannot find value `num` in this scope
+  --> src/lib.rs:13:17
+   |
+13 |     for i in 0..num {
+   |                 ^^^ not found in this scope
+   |
+help: you might have meant to write `.` instead of `..`
+   |
+13 -     for i in 0..num {
+13 +     for i in 0.num {
+   |
+
+warning: consider choosing a more descriptive name
+  --> src/lib.rs:12:15
+   |
+12 | fn call_me(num:) {
+   |               ^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#just_underscores_and_digits
+   = note: `#[warn(clippy::just_underscores_and_digits)]` on by default
+
+For more information about this error, try `rustc --explain E0425`.
+warning: `format_check` (lib) generated 1 warning
+error: could not compile `format_check` (lib) due to 2 previous errors; 1 warning emitted
+
+[!] Source code format check: FAILED
